@@ -1,25 +1,19 @@
 package ru.job4j.accident.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
+import ru.job4j.accident.service.AccidentService;
 
 @Controller
+@AllArgsConstructor
 public class IndexControl {
+    private final AccidentService accidentService;
+
     @GetMapping("/")
     public String index(Model model) {
-        List<String> list = List.of("Chery",
-                "CheryExeed",
-                "Chevrolet",
-                "Chrysler",
-                "Citroen",
-                "Dacia",
-                "Daewoo",
-                "Daihatsu",
-                "Datsun");
-        model.addAttribute("marks", list);
+        model.addAttribute("accidents", accidentService.findAllAccidents());
         return "index";
     }
 }
