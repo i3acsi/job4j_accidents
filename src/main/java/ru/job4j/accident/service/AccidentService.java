@@ -37,4 +37,8 @@ public class AccidentService {
     public void create(Accident accident) {
         this.accidentRepo.create(accident);
     }
+
+    public void update(Accident accident) {
+        accidentRepo.update(accident);
+    }
 }

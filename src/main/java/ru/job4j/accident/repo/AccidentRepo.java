@@ -10,4 +10,6 @@ public interface AccidentRepo {
     void create(Accident accident);
 
     Accident findAccidentById(Long id);
+
+    void update(Accident accident);
 }

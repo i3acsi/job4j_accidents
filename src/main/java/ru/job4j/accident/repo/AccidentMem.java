@@ -50,4 +50,12 @@ public class AccidentMem implements AccidentRepo {
     public Accident findAccidentById(Long id) {
         return this.accidents.get(id);
     }
+
+    @Override
+    public void update(Accident accident) {
+        this.accidents.computeIfPresent(accident.getId(), (k, v) -> {
+            accident.setCreated(v.getCreated());
+            return accident;
+        });
+    }
 }

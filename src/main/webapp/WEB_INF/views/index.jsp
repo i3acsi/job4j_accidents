@@ -36,6 +36,12 @@
                 <th><c:out value="${accident.photo}"/></th>
                 <th><c:out value="${accident.status}"/></th>
                 <th><c:out value="${accident.updated}"/></th>
+                <th>
+                    <form action="<c:url value='/edit'/>" method="get">
+                        <input name="id" type="text" value="<c:out value="${accident.id}"/>" hidden>
+                        <button class="btn btn-sm" type="submit">Изменить</button>
+                    </form>
+                </th>
             </tr>
         </c:forEach>
         </tbody>
