@@ -21,6 +21,7 @@
             <th>Photo</th>
             <th>Status</th>
             <th>Updated</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -39,6 +40,7 @@
         </c:forEach>
         </tbody>
     </table>
+    <a href="<c:url value='/create'/>">Добавить инцидент</a>
 </div>
 Hello : Accident
 </body>

@@ -6,4 +6,8 @@ import java.util.Collection;
 
 public interface AccidentRepo {
     Collection<Accident> findAllAccidents();
+
+    void create(Accident accident);
+
+    Accident findAccidentById(Long id);
 }

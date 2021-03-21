@@ -38,4 +38,16 @@ public class AccidentMem implements AccidentRepo {
     public Collection<Accident> findAllAccidents() {
         return accidents.values();
     }
+
+    @Override
+    public void create(Accident accident) {
+        Long id = accidents.size() + 1L;
+        accident.setId(id);
+        this.accidents.putIfAbsent(id, accident);
+    }
+
+    @Override
+    public Accident findAccidentById(Long id) {
+        return this.accidents.get(id);
+    }
 }
