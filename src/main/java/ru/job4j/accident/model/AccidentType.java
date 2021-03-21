@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum Status {
-    ACCEPTED(1L), REJECTED(2L), COMPLETED(3L);
+public enum AccidentType {
+    TWO_CARS(1L), CAR_AND_HUMAN(2L), CAR_AND_BIKE(3L);
     private Long id;
 }

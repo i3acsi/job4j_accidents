@@ -2,6 +2,7 @@ package ru.job4j.accident.repo;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Status;
 
 import java.util.Collection;
@@ -22,6 +23,7 @@ public class AccidentMem implements AccidentRepo {
         accident.setDescription("desc");
         accident.setPhotos(Set.of("photo1", "photo2"));
         accident.setStatus(Status.ACCEPTED);
+        accident.setAccidentType(AccidentType.TWO_CARS);
 
         Accident accident2 = new Accident();
         accident2.setId(2L);
@@ -31,6 +33,8 @@ public class AccidentMem implements AccidentRepo {
         accident2.setDescription("desc2");
         accident2.setPhotos(Set.of("photo12", "photo22"));
         accident2.setStatus(Status.ACCEPTED);
+        accident2.setAccidentType(AccidentType.CAR_AND_HUMAN);
+
         accidents.put(1L, accident);
         accidents.put(2L, accident2);
     }

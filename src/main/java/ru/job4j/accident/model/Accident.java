@@ -22,5 +22,6 @@ public class Accident {
     private String title;
     private String description;
     private Set<String> photos;
-    private Status status = Status.ACCEPTED;
+    private Status status;
+    private AccidentType accidentType;
 }

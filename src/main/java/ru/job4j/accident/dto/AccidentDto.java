@@ -20,6 +20,7 @@ public class AccidentDto {
     private String photo;
     private Set<String> photos;
     private String status;
+    private String accidentType;
 
     public void setPhotos(Set<String> photos){
         this.photos = photos;
