@@ -11,7 +11,7 @@
 
     <style>
         .myTxt {
-            font: 16px sans-serif;
+            font: 10px sans-serif;
             font-weight: bold;
         }
     </style>
@@ -28,6 +28,7 @@
             <th>Photo</th>
             <th>Status</th>
             <th>Type</th>
+            <th>Rules</th>
             <th>Updated</th>
             <th>Actions</th>
         </tr>
@@ -44,6 +45,7 @@
                 <th><c:out value="${accident.photo}"/></th>
                 <th><c:out value="${accident.status}"/></th>
                 <th><c:out value="${accident.accidentType}"/></th>
+                <th><c:out value="${accident.rules}"/></th>
                 <th><c:out value="${accident.updated}"/></th>
                 <th>
                     <form action="<c:url value='/edit'/>" method="get">

@@ -1,7 +1,8 @@
-package ru.job4j.accident.repo;
+package ru.job4j.accident.repo.mem;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Status;
+import ru.job4j.accident.repo.StatusRepo;
 
 import java.util.Collection;
 import java.util.List;

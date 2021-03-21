@@ -24,4 +24,5 @@ public class Accident {
     private Set<String> photos;
     private Status status;
     private AccidentType accidentType;
+    private Set<Rule> rules;
 }

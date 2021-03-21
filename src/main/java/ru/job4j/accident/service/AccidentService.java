@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 import ru.job4j.accident.dto.AccidentDto;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.model.Status;
 import ru.job4j.accident.repo.AccidentRepo;
 import ru.job4j.accident.repo.AccidentTypeRepo;
+import ru.job4j.accident.repo.RuleRepo;
 import ru.job4j.accident.repo.StatusRepo;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,6 +26,7 @@ public class AccidentService {
     private final AccidentRepo accidentRepo;
     private final StatusRepo statusRepo;
     private final AccidentTypeRepo accidentTypeRepo;
+    private final RuleRepo ruleRepo;
     private final ModelMapper modelMapper;
 
     private static final Logger log = LoggerFactory.getLogger(AccidentRepo.class);
@@ -54,7 +58,12 @@ public class AccidentService {
         return statusRepo.findAllStatuses();
     }
 
-    public Collection<AccidentType> findAllAccidentTypes() {
-        return accidentTypeRepo.findAllAccidentTypes();
+    public Collection<AccidentType> findAllAccidentTypes() { return accidentTypeRepo.findAllAccidentTypes(); }
+
+    public Collection<Rule> findAllRules() { return ruleRepo.findAllRules(); }
+
+    public Set<Rule> findRulesByIds(String[] ids) {
+        Set<Long> rIds = Set.of(ids).stream().map(Long::parseLong).collect(Collectors.toSet());
+        return ruleRepo.findRulesByIds(rIds);
     }
 }

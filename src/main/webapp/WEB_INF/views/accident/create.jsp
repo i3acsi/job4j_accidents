@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--@elvariable id="accidentType" type="ru.job4j.accident.model.AccidentType"--%>
 <%--@elvariable id="types" type="java.util.Collection"--%>
+<%--@elvariable id="rules" type="java.util.Collection"--%>
+<%--@elvariable id="rule" type="ru.job4j.accident.model.Rule"--%>
 <html>
 <body>
 <form action="<c:url value='/save'/>" method='POST'>
@@ -35,6 +37,15 @@
                     </c:forEach>
                 </select>
             </td>
+        </tr>
+        <tr>
+            <td>Статьи:</td>
+            <td>
+                <select name="rIds" multiple>
+                    <c:forEach var="rule" items="${rules}" >
+                        <option value="${rule.id}">${rule.name}</option>
+                    </c:forEach>
+                </select>
         </tr>
         <tr>
             <td colspan='2'><input name="submit" type="submit" value="Сохранить"/></td>

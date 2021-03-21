@@ -10,9 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+import ru.job4j.accident.model.Rule;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
+import java.util.StringJoiner;
 
 @Configuration
 @ComponentScan("ru.job4j.accident")
@@ -41,7 +44,18 @@ public class WebConfig {
                 return source == null ? null : formatter.format(source);
             }
         };
+        Converter<Set<Rule>, String> rulesStringConverter = new AbstractConverter<>() {
+            protected String convert(Set<Rule> source) {
+                StringJoiner joiner = new StringJoiner(";\r");
+                if (source!=null && !source.isEmpty())
+                source.stream()
+                        .map(Rule::getName)
+                        .forEach(joiner::add);
+                return joiner.toString();
+            }
+        };
         modelMapper.addConverter(dateStringConverter);
+        modelMapper.addConverter(rulesStringConverter);
         return modelMapper;
     }
 }
